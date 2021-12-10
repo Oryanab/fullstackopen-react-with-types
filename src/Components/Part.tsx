@@ -41,10 +41,6 @@ export default function Part({
     //});
   };
 
-  //   courseParts.forEach((course) => {
-  //     <ElemPart courseParts={checkType(course)} />;
-  //   });
-
   return (
     <div>
       {courseParts.map((course) => {
