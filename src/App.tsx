@@ -1,32 +1,58 @@
 import React from "react";
 import logo from "./logo.svg";
-import Content from "./Components/Content";
+import {
+  Content,
+  CoursePart,
+  CourseDescriptionPart,
+  CourseNormalPart,
+  CourseProjectPart,
+  CourseSubmissionPart,
+} from "./Components/Content";
 import Header from "./Components/Header";
 import Total from "./Components/Total";
+import Part from "./Components/Part";
 
 const App = () => {
   const courseName = "Half Stack application development";
-  const courseParts = [
+  const courseParts: CoursePart[] = [
     {
       name: "Fundamentals",
       exerciseCount: 10,
+      description: "This is the leisured course part",
+      type: "normal",
+    },
+    {
+      name: "Advanced",
+      exerciseCount: 7,
+      description: "This is the harded course part",
+      type: "normal",
     },
     {
       name: "Using props to pass data",
       exerciseCount: 7,
+      groupProjectCount: 3,
+      type: "groupProject",
     },
     {
       name: "Deeper type usage",
       exerciseCount: 14,
+      description: "Confusing description",
+      exerciseSubmissionLink: "https://fake-exercise-submit.made-up-url.dev",
+      type: "submission",
+    },
+    {
+      name: "Backend development",
+      exerciseCount: 21,
+      description: "Typing the backend",
+      requirements: ["nodejs", "jest"],
+      type: "special",
     },
   ];
 
   return (
     <div>
       <Header courseName={courseName} />
-      {courseParts.map((course) => {
-        return <Content key={course.name} coursePart={course} />;
-      })}
+      <Part courseParts={courseParts} />
       <Total courseParts={courseParts} />
     </div>
   );
